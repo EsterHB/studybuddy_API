@@ -1,7 +1,5 @@
 FROM eclipse-temurin:21-jdk
 WORKDIR /app
-COPY . /app
-RUN chmod +x mvnw
-RUN ./mvnw clean package -DskipTests
+COPY target/studybuddy-api-0.0.1-SNAPSHOT.jar app.jar
 EXPOSE 8080
-CMD ["java", "-jar", "target/studybuddy-api-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "app.jar"]
